@@ -26,8 +26,8 @@ spring:
           uri: lb://ms-register
           predicates:
             - Path=/api/v1/user/**
-        - id: ms-document
-          uri: lb://ms-document
+        - id: ms-documents
+          uri: lb://ms-documents
           predicates:
             - Path=/api/v1/document/**   # Corregido aquí
         - id: ms-evaluation
