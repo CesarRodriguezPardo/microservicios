@@ -5,9 +5,7 @@ import com.example.demo.services.CustomerWorksheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,20 @@ public class CustomerWorksheetController {
     @GetMapping("/findByRut/{rut}")
     public ResponseEntity<CustomerWorksheetEntity> findByRut(String rut){
         return ResponseEntity.ok().body(customerWorksheetService.findByRut(rut));
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<Boolean> save(@RequestBody CustomerWorksheetEntity customerWorksheetEntity){
+        return ResponseEntity.ok(customerWorksheetService.save(customerWorksheetEntity));
+    }
+
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<CustomerWorksheetEntity> findById(Long id){
+        return ResponseEntity.ok().body(customerWorksheetService.findById(id));
+    }
+
+    @DeleteMapping("/deleteById/{id}")
+    public ResponseEntity<Boolean> deleteById(Long id){
+        return ResponseEntity.ok().body(customerWorksheetService.deleteById(id));
     }
 }

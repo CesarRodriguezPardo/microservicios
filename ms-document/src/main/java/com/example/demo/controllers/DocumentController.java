@@ -216,4 +216,16 @@ public class DocumentController {
 
         return new ResponseEntity<>(fileData, headers, HttpStatus.OK);
     }
+
+
+    @PostMapping("/save")
+    public ResponseEntity<Boolean> save(@RequestBody DocumentEntity documentEntity){
+        return ResponseEntity.ok(documentService.save(documentEntity));
+    }
+
+
+    @DeleteMapping("/deleteById/{id}")
+    public ResponseEntity<Boolean> deleteById(Long id){
+        return ResponseEntity.ok().body(documentService.deleteById(id));
+    }
 }

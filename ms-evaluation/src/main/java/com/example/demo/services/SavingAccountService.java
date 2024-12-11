@@ -110,4 +110,15 @@ public class SavingAccountService {
         }
         savingAccountRepository.save(account);
     }
+
+    public Boolean save(SavingAccountEntity savingAccountEntity){
+        savingAccountRepository.save(savingAccountEntity);
+        return true;
+    }
+
+    public Boolean deleteById(Long id){
+        savingAccountRepository.deleteById(id);
+        return true;
+    }
+
 }

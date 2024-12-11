@@ -208,5 +208,16 @@ public class DocumentService {
             return false;
         }
     }
+
+    public Boolean save(DocumentEntity documentEntity){
+        documentRepository.save(documentEntity);
+        return true;
+    }
+
+    public Boolean deleteById(Long id){
+        documentRepository.deleteById(id);
+        return true;
+    }
+
 }
 
