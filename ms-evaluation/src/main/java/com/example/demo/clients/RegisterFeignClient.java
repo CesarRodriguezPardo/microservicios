@@ -1,8 +1,7 @@
 package com.example.demo.clients;
 
-import com.example.demo.models.UserEntity;
+import com.example.demo.models.UserModel;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -13,5 +12,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface RegisterFeignClient {
 
     @GetMapping("/findByRut/{rut}")
-    UserEntity findByRut(@PathVariable("rut") String rut);
+    UserModel findByRut(@PathVariable("rut") String rut);
 }

@@ -3,16 +3,15 @@ package com.example.demo.clients;
 import com.example.demo.models.CustomerWorksheetModel;
 import com.example.demo.models.SavingAccountModel;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(value = "ms-evaluation-saving",
+@FeignClient(value = "ms-evaluation",
         path = "/api/v1/savingAccount"
 )
 
-public interface SavingFeignClient {
+public interface EvaluationFeignClient {
 
     @PostMapping("/save")
     Boolean save(@RequestBody SavingAccountModel savingAccountModel);
@@ -31,4 +30,21 @@ public interface SavingFeignClient {
 
     @DeleteMapping("/deleteById/{id}")
     Boolean deleteById(@PathVariable Long id);
+
+    ///////
+
+    @PostMapping("/save")
+    Boolean saveWorksheet(@RequestBody CustomerWorksheetModel customerWorksheetModel);
+
+    @GetMapping("/getAll")
+    List<CustomerWorksheetModel> getAllWorksheet();
+
+    @GetMapping("/findByRut/{rut}")
+    CustomerWorksheetModel findByRutWorksheet(String rut);
+
+    @GetMapping("/findById/{id}")
+    CustomerWorksheetModel findByIdWorksheet(@PathVariable Long id);
+
+    @DeleteMapping("/deleteById/{id}")
+    Boolean deleteByIdWorksheet(@PathVariable Long id);
 }

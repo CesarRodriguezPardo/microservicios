@@ -18,27 +18,27 @@ public class CustomerWorksheetController {
     private CustomerWorksheetService customerWorksheetService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<CustomerWorksheetEntity>> getAll(){
+    public ResponseEntity<List<CustomerWorksheetEntity>> getAllWorksheet(){
         return ResponseEntity.ok().body(customerWorksheetService.getAll());
     }
 
     @GetMapping("/findByRut/{rut}")
-    public ResponseEntity<CustomerWorksheetEntity> findByRut(String rut){
+    public ResponseEntity<CustomerWorksheetEntity> findByRutWorksheet(String rut){
         return ResponseEntity.ok().body(customerWorksheetService.findByRut(rut));
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Boolean> save(@RequestBody CustomerWorksheetEntity customerWorksheetEntity){
+    public ResponseEntity<Boolean> saveWorksheet(@RequestBody CustomerWorksheetEntity customerWorksheetEntity){
         return ResponseEntity.ok(customerWorksheetService.save(customerWorksheetEntity));
     }
 
     @GetMapping("/findById/{id}")
-    public ResponseEntity<CustomerWorksheetEntity> findById(Long id){
+    public ResponseEntity<CustomerWorksheetEntity> findByIdWorksheet(Long id){
         return ResponseEntity.ok().body(customerWorksheetService.findById(id));
     }
 
     @DeleteMapping("/deleteById/{id}")
-    public ResponseEntity<Boolean> deleteById(Long id){
+    public ResponseEntity<Boolean> deleteByIdWorksheet(Long id){
         return ResponseEntity.ok().body(customerWorksheetService.deleteById(id));
     }
 }

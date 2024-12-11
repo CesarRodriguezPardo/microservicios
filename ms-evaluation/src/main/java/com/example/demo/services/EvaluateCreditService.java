@@ -1,9 +1,8 @@
 package com.example.demo.services;
 
 import com.example.demo.clients.RegisterFeignClient;
-import com.example.demo.configurations.FeignClientConfig;
 import com.example.demo.entities.CustomerWorksheetEntity;
-import com.example.demo.models.UserEntity;
+import com.example.demo.models.UserModel;
 import com.example.demo.repositories.CustomerWorksheetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +43,7 @@ public class EvaluateCreditService {
     }
 
     public boolean R6maxAge(int n, String rut){
-        UserEntity user = registerFeignClient.findByRut(rut);
+        UserModel user = registerFeignClient.findByRut(rut);
         return (user.getAge() + n) > 70;
     }
 

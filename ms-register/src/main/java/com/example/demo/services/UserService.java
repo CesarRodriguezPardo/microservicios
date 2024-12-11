@@ -1,18 +1,14 @@
 package com.example.demo.services;
 
 import com.example.demo.clients.DocumentsFeignClient;
-import com.example.demo.clients.SavingFeignClient;
-import com.example.demo.clients.WorksheetFeignClient;
+import com.example.demo.clients.EvaluationFeignClient;
 import com.example.demo.entities.UserEntity;
 import com.example.demo.models.CustomerWorksheetModel;
 import com.example.demo.models.DocumentModel;
 import com.example.demo.models.SavingAccountModel;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,10 +19,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private WorksheetFeignClient worksheetRepository;
-
-    @Autowired
-    private SavingFeignClient savingAccountRepository;
+    private EvaluationFeignClient savingAccountRepository;
 
     @Autowired
     private DocumentsFeignClient documentRepository;
@@ -82,7 +75,7 @@ public class UserService {
         DocumentModel documentEntity = new DocumentModel();
         documentEntity.setUserId(Long.toString(user.getId()));
 
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
         savingAccountRepository.save(savingAccountEntity);
         documentRepository.save(documentEntity);
         return true;
@@ -90,8 +83,8 @@ public class UserService {
 
     public void deleteByRut(Long id){
         userRepository.deleteById(id);
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findById(id);
-        worksheetRepository.deleteById(worksheetEntity.getId());
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByIdWorksheet(id);
+        savingAccountRepository.deleteByIdWorksheet(worksheetEntity.getId());
         SavingAccountModel savingEntity = savingAccountRepository.findById(id);
         savingAccountRepository.deleteById(savingEntity.getId());
         DocumentModel documentEntity = documentRepository.findById(id);
@@ -119,45 +112,45 @@ public class UserService {
     }
 
     public void setDicom(String rut, boolean dicom) {
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findByRut(rut);
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByRutWorksheet(rut);
         worksheetEntity.setDicom(dicom);
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
     }
 
     public void setTotalDebts(String rut, float totalDebts) {
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findByRut(rut);
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByRutWorksheet(rut);
         worksheetEntity.setTotalDebts(totalDebts);
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
     }
 
     public void setIndependentJob(String rut, boolean independentJob) {
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findByRut(rut);
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByRutWorksheet(rut);
         worksheetEntity.setIndependentJob(independentJob);
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
     }
 
     public void setJobSeniority(String rut, int jobSeniority) {
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findByRut(rut);
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByRutWorksheet(rut);
         worksheetEntity.setJobSeniority(jobSeniority);
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
     }
 
     public void setSalary(String rut, int salary) {
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findByRut(rut);
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByRutWorksheet(rut);
         worksheetEntity.setSalary(salary);
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
     }
 
     public void setIndepentEvaluate(String rut, Boolean evaluate) {
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findByRut(rut);
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByRutWorksheet(rut);
         worksheetEntity.setIndependentEvaluate(evaluate);
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
     }
 
     public void setLatePayment(String rut, Boolean latePayment) {
-        CustomerWorksheetModel worksheetEntity = worksheetRepository.findByRut(rut);
+        CustomerWorksheetModel worksheetEntity = savingAccountRepository.findByRutWorksheet(rut);
         worksheetEntity.setLatePayment(latePayment);
-        worksheetRepository.save(worksheetEntity);
+        savingAccountRepository.saveWorksheet(worksheetEntity);
     }
 
     public void setRetiredCash(String rut, float retiredCash) {

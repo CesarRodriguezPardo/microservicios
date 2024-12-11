@@ -30,3 +30,7 @@ spring:
           uri: lb://ms-document
           predicates:
             - Path=//api/v1/document/**
+        - id: ms-evaluation
+          uri: lb://ms-evaluation
+          predicates:
+            - Path=//api/v1/evaluation/**

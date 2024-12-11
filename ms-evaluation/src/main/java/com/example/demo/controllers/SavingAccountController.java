@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 @CrossOrigin
-@RequestMapping("/api/v1/savingAccount")
+@RequestMapping("/api/v1/evaluation")
 
 public class SavingAccountController {
     @Autowired
