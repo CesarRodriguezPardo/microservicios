@@ -42,7 +42,7 @@ public interface EvaluationFeignClient {
     List<CustomerWorksheetModel> getAllWorksheet();
 
     @GetMapping("/findByRutWorksheet/{rut}")
-    CustomerWorksheetModel findByRutWorksheet(String rut);
+    CustomerWorksheetModel findByRutWorksheet(@PathVariable String rut);
 
     @GetMapping("/findByIdWorksheet/{id}")
     CustomerWorksheetModel findByIdWorksheet(@PathVariable Long id);
@@ -51,9 +51,4 @@ public interface EvaluationFeignClient {
     Boolean deleteByIdWorksheet(@PathVariable Long id);
 
     ////
-
-    @GetMapping("/calculatePayment/{p}/{amount}/{n}")
-    public double calculatePayment(@PathVariable float p,
-                                              @PathVariable float amount,
-                                              @PathVariable float n);
 }

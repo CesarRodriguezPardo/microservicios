@@ -21,7 +21,7 @@ public class CustomerWorksheetController {
     }
 
     @GetMapping("/findByRutWorksheet/{rut}")
-    public ResponseEntity<CustomerWorksheetEntity> findByRutWorksheet(String rut){
+    public ResponseEntity<CustomerWorksheetEntity> findByRutWorksheet(@PathVariable String rut){
         return ResponseEntity.ok().body(customerWorksheetService.findByRut(rut));
     }
 
@@ -31,12 +31,12 @@ public class CustomerWorksheetController {
     }
 
     @GetMapping("/findByIdWorksheet/{id}")
-    public ResponseEntity<CustomerWorksheetEntity> findByIdWorksheet(Long id){
+    public ResponseEntity<CustomerWorksheetEntity> findByIdWorksheet(@PathVariable Long id){
         return ResponseEntity.ok().body(customerWorksheetService.findById(id));
     }
 
     @DeleteMapping("/deleteByIdWorksheet/{id}")
-    public ResponseEntity<Boolean> deleteByIdWorksheet(Long id){
+    public ResponseEntity<Boolean> deleteByIdWorksheet(@PathVariable Long id){
         return ResponseEntity.ok().body(customerWorksheetService.deleteById(id));
     }
 }

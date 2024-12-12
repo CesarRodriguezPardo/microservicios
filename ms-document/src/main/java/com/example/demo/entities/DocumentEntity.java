@@ -19,34 +19,44 @@ public class DocumentEntity {
     private String userId;
 
     @Lob
-    private byte[] savingAccountFile; // cuenta de ahorros
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] savingAccountFile;
 
     @Lob
-    private byte[] worksheetFile; // planilla
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] worksheetFile;
 
     @Lob
-    private byte[] incomeFile; // comprobante de ingresos
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] incomeFile;
 
     @Lob
-    private byte[] appraisalFile; // certificado de avalúo
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] appraisalFile;
 
     @Lob
-    private byte[] creditHistoryFile; //historial crediticio
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] creditHistoryFile;
 
     @Lob
-    private byte[] firstHomeFile; // escritura primera vivienda
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] firstHomeFile;
 
     @Lob
-    private byte[] businessPlanFile; // plan de negocios
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] businessPlanFile;
 
     @Lob
-    private byte[] remodelingBudgetFile; // presupuesto de remodelación
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] remodelingBudgetFile;
 
     @Lob
-    private byte[] updatedAppraisalFile; // certificado avalúo actualizado
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] updatedAppraisalFile;
 
     @Lob
-    private byte[] financialStatement; // estado financiero del negocio
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] financialStatement;
 
     // Getters
     public Long getId() {

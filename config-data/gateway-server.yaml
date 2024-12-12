@@ -38,3 +38,7 @@ spring:
           uri: lb://ms-credit
           predicates:
             - Path=/api/v1/credit/**  # Corregido aquí
+        - id: ms-simulation
+          uri: lb://ms-simulation
+          predicates:
+            - Path=/api/v1/simulation/**  # Corregido aquí

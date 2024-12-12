@@ -4,14 +4,13 @@ import com.example.demo.services.CalculateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/api/v1/evaluation")
+@RequestMapping("/api/v1/simulation")
 public class CalculateController {
     @Autowired
     CalculateService calculateService;

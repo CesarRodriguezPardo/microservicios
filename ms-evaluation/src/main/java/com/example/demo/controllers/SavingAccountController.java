@@ -27,7 +27,7 @@ public class SavingAccountController {
     }
 
     @GetMapping("/findByRut/{rut}")
-    public ResponseEntity<SavingAccountEntity> findByRut(String rut){
+    public ResponseEntity<SavingAccountEntity> findByRut(@PathVariable String rut){
         return ResponseEntity.ok().body(savingAccountService.findByRut(rut));
     }
 

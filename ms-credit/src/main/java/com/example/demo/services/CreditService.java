@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.clients.EvaluationFeignClient;
+import com.example.demo.clients.SimulationFeignClient;
 import com.example.demo.entities.CreditEntity;
 import com.example.demo.models.SavingAccountModel;
 import com.example.demo.repositories.CreditRepository;
@@ -20,6 +21,9 @@ public class CreditService {
     @Autowired
     EvaluationFeignClient savingAccountService;
 
+    @Autowired
+    SimulationFeignClient simulationFeignClient;
+
     public List<CreditEntity> findByRut(String userId){
         return creditRepository.findByRut(userId);
     }
@@ -31,7 +35,7 @@ public class CreditService {
     public Boolean saveCredit(CreditEntity credit){
         String rut = credit.getRut();
 
-        double monthlyPayment = savingAccountService.calculatePayment(credit.getRequestedAmount(),
+        double monthlyPayment = simulationFeignClient.calculatePayment(credit.getRequestedAmount(),
                 credit.getInterestRate(),
                 credit.getRequestedTerm());
 
