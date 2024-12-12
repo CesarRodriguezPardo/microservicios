@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/api/v1/evaluation")
-@CrossOrigin
-
 public class CalculateController {
     @Autowired
     CalculateService calculateService;

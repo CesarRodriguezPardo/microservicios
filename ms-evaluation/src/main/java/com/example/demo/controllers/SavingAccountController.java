@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@CrossOrigin
 @RequestMapping("/api/v1/evaluation")
-
 public class SavingAccountController {
     @Autowired
     private SavingAccountService savingAccountService;

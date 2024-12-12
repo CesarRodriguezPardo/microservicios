@@ -11,8 +11,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/v1/evaluation")
-@CrossOrigin
-
 public class CustomerWorksheetController {
     @Autowired
     private CustomerWorksheetService customerWorksheetService;

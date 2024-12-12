@@ -13,8 +13,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/v1/user")
-@CrossOrigin
-
 public class UserController {
     @Autowired
     private UserService userService;

@@ -13,7 +13,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/api/v1/document")
-@CrossOrigin("*")
 public class DocumentController {
     @Autowired
     private DocumentService documentService;
