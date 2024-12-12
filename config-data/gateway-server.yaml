@@ -34,3 +34,7 @@ spring:
           uri: lb://ms-evaluation
           predicates:
             - Path=/api/v1/evaluation/**  # Corregido aquí
+        - id: ms-credit
+          uri: lb://ms-credit
+          predicates:
+            - Path=/api/v1/credit/**  # Corregido aquí

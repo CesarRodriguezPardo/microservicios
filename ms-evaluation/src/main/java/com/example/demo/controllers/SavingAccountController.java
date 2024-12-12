@@ -22,8 +22,6 @@ public class SavingAccountController {
     public ResponseEntity<List<SavingAccountEntity>> getAll(){
         return ResponseEntity.ok().body(savingAccountService.getAll());}
 
-
-
     @PostMapping("/rateEvaluation/{rut}")
     public ResponseEntity<Void> rateEvaluation(@PathVariable String rut){
         savingAccountService.rateEvaluation(rut);
@@ -43,5 +41,36 @@ public class SavingAccountController {
     @DeleteMapping("/deleteById/{id}")
     public ResponseEntity<Boolean> deleteById(Long id){
         return ResponseEntity.ok().body(savingAccountService.deleteById(id));
+    }
+
+
+    @PostMapping("/R71/{rut}")
+    public ResponseEntity<Void> R71(@PathVariable String rut) {
+        savingAccountService.R71(rut);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/R72consistentHistory/{rut}")
+    public ResponseEntity<Void> R72consistentHistory(@PathVariable String rut) {
+        savingAccountService.R72consistentHistory(rut);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/R73periodicDeposit/{rut}")
+    public ResponseEntity<Void> R73periodicDeposit(@PathVariable String rut) {
+        savingAccountService.R73periodicDeposit(rut);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/R74balanceSeniority/{rut}")
+    public ResponseEntity<Void> R74balanceSeniority(@PathVariable String rut) {
+        savingAccountService.R74balanceSeniority(rut);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/R75recentlyRecent/{rut}")
+    public ResponseEntity<Void> R75recentlyRecent(@PathVariable String rut) {
+        savingAccountService.R75recentlyRecent(rut);
+        return ResponseEntity.ok().build();
     }
 }

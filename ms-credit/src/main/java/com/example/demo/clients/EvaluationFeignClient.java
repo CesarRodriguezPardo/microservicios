@@ -3,6 +3,7 @@ package com.example.demo.clients;
 import com.example.demo.models.CustomerWorksheetModel;
 import com.example.demo.models.SavingAccountModel;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public interface EvaluationFeignClient {
     @DeleteMapping("/deleteById/{id}")
     Boolean deleteById(@PathVariable Long id);
 
+
     ///////
 
     @PostMapping("/saveWorksheet")
@@ -47,4 +49,11 @@ public interface EvaluationFeignClient {
 
     @DeleteMapping("/deleteByIdWorksheet/{id}")
     Boolean deleteByIdWorksheet(@PathVariable Long id);
+
+    ////
+
+    @GetMapping("/calculatePayment/{p}/{amount}/{n}")
+    public double calculatePayment(@PathVariable float p,
+                                              @PathVariable float amount,
+                                              @PathVariable float n);
 }

@@ -10,34 +10,34 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/v1/worksheet")
+@RequestMapping("/api/v1/evaluation")
 @CrossOrigin
 
 public class CustomerWorksheetController {
     @Autowired
     private CustomerWorksheetService customerWorksheetService;
 
-    @GetMapping("/getAll")
+    @GetMapping("/getAllWorksheet")
     public ResponseEntity<List<CustomerWorksheetEntity>> getAllWorksheet(){
         return ResponseEntity.ok().body(customerWorksheetService.getAll());
     }
 
-    @GetMapping("/findByRut/{rut}")
+    @GetMapping("/findByRutWorksheet/{rut}")
     public ResponseEntity<CustomerWorksheetEntity> findByRutWorksheet(String rut){
         return ResponseEntity.ok().body(customerWorksheetService.findByRut(rut));
     }
 
-    @PostMapping("/save")
+    @PostMapping("/saveWorksheet")
     public ResponseEntity<Boolean> saveWorksheet(@RequestBody CustomerWorksheetEntity customerWorksheetEntity){
         return ResponseEntity.ok(customerWorksheetService.save(customerWorksheetEntity));
     }
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/findByIdWorksheet/{id}")
     public ResponseEntity<CustomerWorksheetEntity> findByIdWorksheet(Long id){
         return ResponseEntity.ok().body(customerWorksheetService.findById(id));
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteByIdWorksheet/{id}")
     public ResponseEntity<Boolean> deleteByIdWorksheet(Long id){
         return ResponseEntity.ok().body(customerWorksheetService.deleteById(id));
     }
